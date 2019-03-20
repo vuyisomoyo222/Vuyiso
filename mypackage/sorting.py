@@ -15,7 +15,7 @@ def bubble_sort(items):
     return items
 
 def merge_sort(items):
-   list1 = []
+    list1 = []
     while len(a) > 0 and len(b) > 0:
         if a[0] < b[0]:
             list1.append(a[0])

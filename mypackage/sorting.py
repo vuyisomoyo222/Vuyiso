@@ -15,31 +15,18 @@ def bubble_sort(items):
     return items
 
 def merge_sort(items):
-    list1 = []
-    while len(a) > 0 and len(b) > 0:
-        if a[0] < b[0]:
-            list1.append(a[0])
-            a.pop(0)
-        else:
-            list1.append(b[0])
-            b.pop(0)
 
-    if len(a) == 0:
-        list1 = list1+ b
-    if len(b) == 0:
-        list1 = list1 + a
+    '''Return array of items, sorted in ascending order'''
+    if len(items) < 2:return items
 
-    return list1
+    result,mid = [],int(len(items)/2)
 
+    y = merge_sort(items[:mid])
+    z = merge_sort(items[mid:])
 
-def merge_sort(items):
+    while (len(y) > 0) and (len(z) > 0):
+            if y[0] > z[0]:result.append(z.pop(0))
+            else:result.append(y.pop(0))
 
-    len_item= len(items)
-    if len_item== 1:
-        return items
-
-    midnumber = int(len_item / 2)
-    item1 = merge_sort(items[:midnumber])
-    item2 = merge_sort(items[midnumber:])
-
-    return merge(item1, item2)
+    result.extend(y+z)
+    return result
